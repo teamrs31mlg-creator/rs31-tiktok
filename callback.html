@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="id">
+<head><meta charset="UTF-8"><title>Callback TikTok</title></head>
+<body style="font-family:Arial;max-width:640px;margin:40px auto;padding:0 16px">
+  <h1>Otorisasi TikTok</h1>
+  <p id="msg">Memproses...</p>
+  <textarea id="code" rows="4" style="width:100%" readonly></textarea>
+  <script>
+    const p = new URLSearchParams(location.search);
+    if (p.get('code')) {
+      document.getElementById('msg').textContent = 'Salin kode di bawah, lalu tempel ke Apps Script. Jangan dibagikan ke siapa pun.';
+      document.getElementById('code').value = p.get('code');
+    } else {
+      document.getElementById('msg').textContent = 'Gagal: ' + (p.get('error_description') || 'kode tidak ditemukan');
+    }
+  </script>
+</body>
+</html>
